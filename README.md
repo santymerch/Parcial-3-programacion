@@ -15,7 +15,7 @@ Sistema de información que centraliza el ciclo completo de préstamo y devoluci
 ## Tecnologías
 
 - Python 3.10 o superior (solo librería estándar)
-- Google Colab + Google Drive (sin instalación local)
+- Jupyter Notebook (VS Code o Jupyter)
 - Persistencia en archivos `.txt` con campos delimitados por `|`
 
 ## Arquitectura (3 capas)
@@ -30,7 +30,7 @@ La interfaz de usuario se implementa con menús `print()` / `input()` dentro de 
 
 ## Estructura del notebook (`SGB_Biblioteca.ipynb`)
 
-- **Celda 0** — Configuración: montaje de Drive y rutas de archivos
+- **Celda 0** — Configuración: carpeta local `datos/` y constantes
 - **Sección 1** — Modelo (dominio)
 - **Sección 2** — Repositorios
 - **Sección 3** — Servicios
@@ -51,10 +51,9 @@ La interfaz de usuario se implementa con menús `print()` / `input()` dentro de 
 
 ## Cómo ejecutar
 
-1. Crear en Google Drive la carpeta `MyDrive/SGB/datos/` (cada integrante en su Drive).
-2. Subir `SGB_Biblioteca.ipynb` a Drive y abrirlo con Google Colab.
-3. Ejecutar la **Celda 0** (autoriza el acceso a Drive).
-4. Ejecutar las celdas en orden hasta la Sección 5.
+1. Abrir `SGB_Biblioteca.ipynb` en VS Code o Jupyter.
+2. Ejecutar las celdas en orden. Los datos se guardan en la carpeta `datos/` (se crea sola).
+3. La última celda abre el menú.
 
 ## Estado del proyecto
 
