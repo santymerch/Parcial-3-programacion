@@ -1,0 +1,4 @@
+LIT|Literatura|Novela, cuento y poesía
+TEC|Tecnología|Programación e ingeniería
+CIE|Ciencias|Ciencias naturales y divulgación
+HIS|Historia|Historia de Colombia y del mundo

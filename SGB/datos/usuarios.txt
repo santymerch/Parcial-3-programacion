@@ -1,0 +1,5 @@
+1098765432|María López|ESTUDIANTE|maria.lopez@correo.com|3001234567|ACTIVO
+1001234567|Juan Pérez|DOCENTE|juan.perez@correo.com|3109876543|ACTIVO
+1005556677|Carlos Ruiz|ESTUDIANTE|carlos.ruiz@correo.com|3204567890|ACTIVO
+79888777|Ana Torres|EXTERNO|ana.torres@correo.com|3157778899|ACTIVO
+1102223344|Laura Gómez|ESTUDIANTE|laura.gomez@correo.com|3012223344|SUSPENDIDO

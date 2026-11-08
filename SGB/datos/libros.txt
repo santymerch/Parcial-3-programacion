@@ -1,0 +1,6 @@
+9789585001234|Cien años de soledad|Gabriel García Márquez|LIT|1967|5|4
+9789587654321|Estructuras de datos en Python|Ana Gómez|TEC|2020|2|1
+9780132350884|Clean Code|Robert C. Martin|TEC|2008|3|3
+9789584295670|Breve historia de Colombia|Jorge Orlando Melo|HIS|2017|2|1
+9788408106463|Cosmos|Carl Sagan|CIE|1980|2|2
+9789588886095|El coronel no tiene quien le escriba|Gabriel García Márquez|LIT|1961|1|0

@@ -1,41 +1,37 @@
-# SGB — Sistema de Gestión de Biblioteca
+# SGB — Sistema de Gestión Bibliotecaria
 
-Proyecto del curso de **Programación Orientada a Objetos (POO)**.
-Software en Python para la gestión de una biblioteca: usuarios, libros y categorías, préstamos y devoluciones, reservas, multas, historial de usuario y análisis de datos.
+Trabajo Final de Semestre · **Programación Orientada a Objetos — Ingeniería de Software**.
+Software en Python (Google Colab) para gestionar una biblioteca: usuarios, libros y categorías, préstamos y devoluciones, reservas, multas, historial de usuario y análisis de datos.
 
 ## Integrantes
 
 - Carlos Santiago Merchan Centeno
 - Daniel Fernando Vesga Tarazona
 
-## Descripción
+## Archivos del proyecto
 
-Sistema de información que centraliza el ciclo completo de préstamo y devolución de una biblioteca, reemplazando fichas de papel y hojas de cálculo dispersas, y generando indicadores estadísticos de uso de la colección.
+| Archivo | Contenido |
+|---------|-----------|
+| `SGB.ipynb` | Notebook de Google Colab con todo el sistema |
+| `SGB/datos/*.txt` | Datos de prueba (usuarios, categorías, libros, préstamos, multas, reservas) |
+| `SGB_Diagramas_UML.pdf` | Diagramas UML: dominio, dominio parcial, clases, objetos, estructurados y secuencia |
 
 ## Tecnologías
 
-- Python 3.10 o superior (solo librería estándar)
-- Jupyter Notebook (VS Code o Jupyter)
-- Persistencia en archivos `.txt` con campos delimitados por `|`
+- Python 3.10 o superior, solo librería estándar (`os`, `datetime`, `collections`)
+- Google Colab + Google Drive (también corre localmente en VS Code/Jupyter)
+- Persistencia en archivos `.txt` con campos delimitados por `|`; los campos vacíos se guardan como `NINGUNO`
 
-## Arquitectura (3 capas)
+## Arquitectura (3 capas, implementada solo con funciones)
 
-| Capa | Contenido |
-|------|-----------|
-| Modelo (dominio) | `Usuario`, `Categoria`, `Libro`, `Prestamo`, `Multa`, `Reserva` y enums |
-| Repositorios (persistencia) | `ArchivoUtil`, `UsuarioRepository`, `CategoriaRepository`, `LibroRepository`, `PrestamoRepository`, `MultaRepository`, `ReservaRepository` |
-| Servicios (lógica) | `UsuarioService`, `LibroService`, `PrestamoService`, `MultaService`, `ReservaService`, `AnalisisDatosService` |
+El sistema **no usa clases ni objetos**: cada entidad es un diccionario y cada "clase" del diseño es un grupo de funciones con un prefijo común.
 
-La interfaz de usuario se implementa con menús `print()` / `input()` dentro de celdas del notebook.
-
-## Estructura del notebook (`SGB_Biblioteca.ipynb`)
-
-- **Celda 0** — Configuración: carpeta local `datos/` y constantes
-- **Sección 1** — Modelo (dominio)
-- **Sección 2** — Repositorios
-- **Sección 3** — Servicios
-- **Sección 4** — Interfaz de usuario
-- **Sección 5** — Ejecución principal
+| Capa | Sección del notebook | Funciones |
+|------|----------------------|-----------|
+| Modelo (dominio) | 1 | Enums (`TIPO_USUARIO_ENUM`, `ESTADO_PRESTAMO_ENUM`…) y `crear_*`, `*_to_linea`, `*_from_linea` |
+| Repositorios (persistencia) | 2 | ArchivoUtil (`leer_lineas`, `escribir_linea`, `reescribir`, `generar_codigo`) y `repo_<entidad>_*` |
+| Servicios (lógica) | 3 | `usuario_*`, `libro_*`, `prestamo_*`, `multa_*`, `reserva_*`, `analisis_*` |
+| Interfaz | 4 | `menu_principal`, `menu_usuarios`, `menu_libros`, `menu_prestamos`, `menu_reservas_multas`, `menu_analisis` |
 
 ## Reglas de negocio
 
@@ -46,18 +42,11 @@ La interfaz de usuario se implementa con menús `print()` / `input()` dentro de 
 | Externo | 5 días | 2 |
 
 - Solo pueden pedir prestado usuarios **activos**, sin multas pendientes y dentro de su cupo.
-- Multa por retraso: **COP 1.000 por cada día**.
-- Las reservas se atienden por orden de llegada.
+- Multa por retraso: **COP 1.000 por cada día**, calculada automáticamente al devolver.
+- Solo se reserva un libro sin ejemplares libres; las reservas se atienden por orden de llegada.
 
-## Cómo ejecutar
+## Cómo ejecutar en Colab
 
-1. Abrir `SGB_Biblioteca.ipynb` en VS Code o Jupyter.
-2. Ejecutar las celdas en orden. Los datos se guardan en la carpeta `datos/` (se crea sola).
-3. La última celda abre el menú.
-
-## Estado del proyecto
-
-- [x] Commit 1 — Configuración y capa de Modelo
-- [ ] Commit 2 — Repositorios
-- [ ] Commit 3 — Servicios
-- [ ] Commit 4 — Interfaz de usuario y ejecución principal
+1. Crear la carpeta `SGB/datos/` en *Mi unidad* de Google Drive y subir allí los `.txt` de `SGB/datos/` (opcional: si la carpeta está vacía, el notebook carga datos de prueba automáticamente).
+2. Abrir `SGB.ipynb` en Colab y ejecutar *Entorno de ejecución → Ejecutar todo* (autorizar el acceso a Drive).
+3. La celda 5.0 corre las pruebas de integración en una carpeta temporal; la celda 5.1 abre el menú principal.
