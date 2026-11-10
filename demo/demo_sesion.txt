@@ -1,0 +1,743 @@
+DEMOSTRACIÓN SGB — 2026-11-09  (datos temporales en C:\Users\daniv\AppData\Local\Temp\sgb_demo_vscbgi9v)
+
+Carpeta de datos: C:\Users\daniv\AppData\Local\Temp\sgb_demo_vscbgi9v\SGB\datos\
+Pruebas de integración: OK
+Datos de prueba cargados en C:\Users\daniv\AppData\Local\Temp\sgb_demo_vscbgi9v\SGB\datos\
+
+===== SGB — MENÚ PRINCIPAL =====
+ 1. Gestión de usuarios
+ 2. Gestión de libros y categorías
+ 3. Gestión de préstamos
+ 4. Reservas, multas e historial
+ 5. Análisis de datos
+ 0. Salir
+
+==============================================================================
+  PARTE 1. GESTIÓN DE USUARIOS (RF-01)
+==============================================================================
+Opción: 1
+
+===== GESTIÓN DE USUARIOS =====
+ 1. Registrar usuario
+ 2. Consultar usuario por documento
+ 3. Actualizar datos de contacto
+ 4. Activar / suspender usuario
+ 5. Listar todos los usuarios
+ 0. Volver
+
+==============================================================================
+  Listar los usuarios registrados
+==============================================================================
+Opción: 5
+  Documento  | Nombre      | Tipo       | Correo                 | Teléfono   | Estado    
+  -----------+-------------+------------+------------------------+------------+-----------
+  79888777   | Ana Torres  | EXTERNO    | ana.torres@correo.com  | 3157778899 | ACTIVO    
+  1005556677 | Carlos Ruiz | ESTUDIANTE | carlos.ruiz@correo.com | 3204567890 | ACTIVO    
+  1001234567 | Juan Pérez  | DOCENTE    | juan.perez@correo.com  | 3109876543 | ACTIVO    
+  1102223344 | Laura Gómez | ESTUDIANTE | laura.gomez@correo.com | 3012223344 | SUSPENDIDO
+  1098765432 | María López | ESTUDIANTE | maria.lopez@correo.com | 3001234567 | ACTIVO    
+
+===== GESTIÓN DE USUARIOS =====
+ 1. Registrar usuario
+ 2. Consultar usuario por documento
+ 3. Actualizar datos de contacto
+ 4. Activar / suspender usuario
+ 5. Listar todos los usuarios
+ 0. Volver
+
+==============================================================================
+  Registrar un usuario con errores a propósito: el sistema valida cada campo en el momento
+==============================================================================
+Opción: 1
+
+  --- Registrar usuario ---   (< = campo anterior · * = cancelar)
+  [1/5] Número de documento (5-12 dígitos): abc123
+      ✗ El campo "número de documento" solo admite números (sin letras, espacios ni símbolos). Corrija el dato (< = campo anterior, * = cancelar)
+  [1/5] Número de documento (5-12 dígitos): 55566677
+  [2/5] Nombre completo (solo letras): Pedro 2
+      ✗ El campo "nombre" solo admite letras (sin números ni símbolos). Corrija el dato (< = campo anterior, * = cancelar)
+  [2/5] Nombre completo (solo letras): Pedro Ramírez
+        1) ESTUDIANTE
+        2) DOCENTE
+        3) EXTERNO
+  [3/5] Tipo de usuario: 7
+      ✗ "7" no es una opción válida. Escriba un número del 1 al 3. Corrija el dato (< = campo anterior, * = cancelar)
+  [3/5] Tipo de usuario: 1
+  [4/5] Correo: pedro.correo
+      ✗ Correo inválido: "pedro.correo" (ejemplo válido: nombre@correo.com). Corrija el dato (< = campo anterior, * = cancelar)
+  [4/5] Correo: pedro@correo.com
+  [5/5] Teléfono (7-10 dígitos): 300-12
+      ✗ El campo "teléfono" solo admite números (sin letras, espacios ni símbolos). Corrija el dato (< = campo anterior, * = cancelar)
+
+==============================================================================
+  Con "<" se vuelve al campo anterior; Enter conserva el valor ya escrito
+==============================================================================
+  [5/5] Teléfono (7-10 dígitos): <
+  [4/5] Correo [pedro@correo.com]: 
+  [5/5] Teléfono (7-10 dígitos): 3105556677
+  Resumen:
+    1. Número de documento (5-12 dígitos): 55566677
+    2. Nombre completo (solo letras): Pedro Ramírez
+    3. Tipo de usuario: ESTUDIANTE
+    4. Correo: pedro@correo.com
+    5. Teléfono (7-10 dígitos): 3105556677
+
+==============================================================================
+  En el resumen se corrige el campo 3 (tipo) escribiendo su número y luego se guarda con "s"
+==============================================================================
+  ¿Guardar? (s = sí · 1-5 = corregir ese campo · < = corregir el último · * = cancelar): 3
+        1) ESTUDIANTE
+        2) DOCENTE
+        3) EXTERNO
+  [3/5] Tipo de usuario [ESTUDIANTE]: 2
+  [4/5] Correo [pedro@correo.com]: 
+  [5/5] Teléfono (7-10 dígitos) [3105556677]: 
+  Resumen:
+    1. Número de documento (5-12 dígitos): 55566677
+    2. Nombre completo (solo letras): Pedro Ramírez
+    3. Tipo de usuario: DOCENTE
+    4. Correo: pedro@correo.com
+    5. Teléfono (7-10 dígitos): 3105556677
+  ¿Guardar? (s = sí · 1-5 = corregir ese campo · < = corregir el último · * = cancelar): s
+  Usuario Pedro Ramírez registrado.
+
+===== GESTIÓN DE USUARIOS =====
+ 1. Registrar usuario
+ 2. Consultar usuario por documento
+ 3. Actualizar datos de contacto
+ 4. Activar / suspender usuario
+ 5. Listar todos los usuarios
+ 0. Volver
+
+==============================================================================
+  Consultar el usuario recién creado
+==============================================================================
+Opción: 2
+
+  --- Consultar usuario ---   (< = campo anterior · * = cancelar)
+  [1/1] Número de documento: 55566677
+      → Pedro Ramírez (DOCENTE, ACTIVO)
+  Documento | Nombre        | Tipo    | Correo           | Teléfono   | Estado
+  ----------+---------------+---------+------------------+------------+-------
+  55566677  | Pedro Ramírez | DOCENTE | pedro@correo.com | 3105556677 | ACTIVO
+  Préstamos abiertos: 0/5 · plazo 15 días
+  Multas pendientes: 0 ($0)
+
+===== GESTIÓN DE USUARIOS =====
+ 1. Registrar usuario
+ 2. Consultar usuario por documento
+ 3. Actualizar datos de contacto
+ 4. Activar / suspender usuario
+ 5. Listar todos los usuarios
+ 0. Volver
+
+==============================================================================
+  Con "*" se cancela cualquier operación
+==============================================================================
+Opción: 4
+
+  --- Activar / suspender usuario ---   (< = campo anterior · * = cancelar)
+  [1/2] Número de documento: 55566677
+      → Pedro Ramírez (DOCENTE, ACTIVO)
+        1) ACTIVO
+        2) SUSPENDIDO
+  [2/2] Nuevo estado: *
+  Operación cancelada.
+
+===== GESTIÓN DE USUARIOS =====
+ 1. Registrar usuario
+ 2. Consultar usuario por documento
+ 3. Actualizar datos de contacto
+ 4. Activar / suspender usuario
+ 5. Listar todos los usuarios
+ 0. Volver
+Opción: 0
+
+===== SGB — MENÚ PRINCIPAL =====
+ 1. Gestión de usuarios
+ 2. Gestión de libros y categorías
+ 3. Gestión de préstamos
+ 4. Reservas, multas e historial
+ 5. Análisis de datos
+ 0. Salir
+
+==============================================================================
+  PARTE 2. LIBROS Y CATEGORÍAS (RF-02)
+==============================================================================
+Opción: 2
+
+===== LIBROS Y CATEGORÍAS =====
+ 1. Registrar categoría
+ 2. Listar categorías
+ 3. Registrar libro
+ 4. Consultar libro por ISBN
+ 5. Buscar libros por título
+ 6. Listar libros por categoría
+ 7. Listar libros con ejemplares disponibles
+ 0. Volver
+
+==============================================================================
+  Registrar una categoría (el código debe tener solo letras)
+==============================================================================
+Opción: 1
+
+  --- Registrar categoría ---   (< = campo anterior · * = cancelar)
+  [1/3] Código (2-5 letras, ej. LIT): L1
+      ✗ El código de categoría debe tener de 2 a 5 letras, sin números ni espacios (ej. LIT). Corrija el dato (< = campo anterior, * = cancelar)
+  [1/3] Código (2-5 letras, ej. LIT): FIL
+  [2/3] Nombre (solo letras): Filosofía
+  [3/3] Descripción (opcional, Enter = vacío): 
+  Resumen:
+    1. Código (2-5 letras, ej. LIT): FIL
+    2. Nombre (solo letras): Filosofía
+    3. Descripción: (vacío)
+  ¿Guardar? (s = sí · 1-3 = corregir ese campo · < = corregir el último · * = cancelar): s
+  Categoría FIL registrada.
+
+===== LIBROS Y CATEGORÍAS =====
+ 1. Registrar categoría
+ 2. Listar categorías
+ 3. Registrar libro
+ 4. Consultar libro por ISBN
+ 5. Buscar libros por título
+ 6. Listar libros por categoría
+ 7. Listar libros con ejemplares disponibles
+ 0. Volver
+
+==============================================================================
+  Registrar un libro: ISBN, año y ejemplares se validan; la categoría se elige de una lista
+==============================================================================
+Opción: 3
+
+  --- Registrar libro ---   (< = campo anterior · * = cancelar)
+  [1/6] ISBN (10 o 13 dígitos): 123
+      ✗ El campo "ISBN" debe tener entre 10 y 13 dígitos (tiene 3). Corrija el dato (< = campo anterior, * = cancelar)
+  [1/6] ISBN (10 o 13 dígitos): 9780140449136
+  [2/6] Título: Meditaciones
+  [3/6] Autor (solo letras): Marco Aurelio
+        1) CIE — Ciencias
+        2) FIL — Filosofía
+        3) HIS — Historia
+        4) LIT — Literatura
+        5) TEC — Tecnología
+  [4/6] Categoría: 2
+  [5/6] Año de publicación (1000-2026): 2030
+      ✗ El campo "año" debe ser menor o igual a 2026. Corrija el dato (< = campo anterior, * = cancelar)
+  [5/6] Año de publicación (1000-2026): 2006
+  [6/6] Número de ejemplares (1-999): dos
+      ✗ El campo "ejemplares" debe ser un número entero. Corrija el dato (< = campo anterior, * = cancelar)
+  [6/6] Número de ejemplares (1-999): 1
+  Resumen:
+    1. ISBN (10 o 13 dígitos): 9780140449136
+    2. Título: Meditaciones
+    3. Autor (solo letras): Marco Aurelio
+    4. Categoría: FIL
+    5. Año de publicación (1000-2026): 2006
+    6. Número de ejemplares (1-999): 1
+  ¿Guardar? (s = sí · 1-6 = corregir ese campo · < = corregir el último · * = cancelar): s
+  Libro "Meditaciones" registrado con 1 ejemplar(es).
+
+===== LIBROS Y CATEGORÍAS =====
+ 1. Registrar categoría
+ 2. Listar categorías
+ 3. Registrar libro
+ 4. Consultar libro por ISBN
+ 5. Buscar libros por título
+ 6. Listar libros por categoría
+ 7. Listar libros con ejemplares disponibles
+ 0. Volver
+
+==============================================================================
+  Buscar por título, listar por categoría y listar disponibles
+==============================================================================
+Opción: 5
+
+  --- Buscar por título ---   (< = campo anterior · * = cancelar)
+  [1/1] Texto del título: cien
+  ISBN          | Título               | Autor                  | Cat. | Año  | Total | Disp.
+  --------------+----------------------+------------------------+------+------+-------+------
+  9789585001234 | Cien años de soledad | Gabriel García Márquez | LIT  | 1967 | 5     | 4    
+
+===== LIBROS Y CATEGORÍAS =====
+ 1. Registrar categoría
+ 2. Listar categorías
+ 3. Registrar libro
+ 4. Consultar libro por ISBN
+ 5. Buscar libros por título
+ 6. Listar libros por categoría
+ 7. Listar libros con ejemplares disponibles
+ 0. Volver
+Opción: 6
+
+  --- Libros por categoría ---   (< = campo anterior · * = cancelar)
+        1) CIE — Ciencias
+        2) FIL — Filosofía
+        3) HIS — Historia
+        4) LIT — Literatura
+        5) TEC — Tecnología
+  [1/1] Categoría: 4
+  ISBN          | Título                               | Autor                  | Cat. | Año  | Total | Disp.
+  --------------+--------------------------------------+------------------------+------+------+-------+------
+  9789585001234 | Cien años de soledad                 | Gabriel García Márquez | LIT  | 1967 | 5     | 4    
+  9789588886095 | El coronel no tiene quien le escriba | Gabriel García Márquez | LIT  | 1961 | 1     | 0    
+
+===== LIBROS Y CATEGORÍAS =====
+ 1. Registrar categoría
+ 2. Listar categorías
+ 3. Registrar libro
+ 4. Consultar libro por ISBN
+ 5. Buscar libros por título
+ 6. Listar libros por categoría
+ 7. Listar libros con ejemplares disponibles
+ 0. Volver
+Opción: 7
+  ISBN          | Título                         | Autor                  | Cat. | Año  | Total | Disp.
+  --------------+--------------------------------+------------------------+------+------+-------+------
+  9789585001234 | Cien años de soledad           | Gabriel García Márquez | LIT  | 1967 | 5     | 4    
+  9789587654321 | Estructuras de datos en Python | Ana Gómez              | TEC  | 2020 | 2     | 1    
+  9780132350884 | Clean Code                     | Robert C. Martin       | TEC  | 2008 | 3     | 3    
+  9789584295670 | Breve historia de Colombia     | Jorge Orlando Melo     | HIS  | 2017 | 2     | 1    
+  9788408106463 | Cosmos                         | Carl Sagan             | CIE  | 1980 | 2     | 2    
+  9780140449136 | Meditaciones                   | Marco Aurelio          | FIL  | 2006 | 1     | 1    
+
+===== LIBROS Y CATEGORÍAS =====
+ 1. Registrar categoría
+ 2. Listar categorías
+ 3. Registrar libro
+ 4. Consultar libro por ISBN
+ 5. Buscar libros por título
+ 6. Listar libros por categoría
+ 7. Listar libros con ejemplares disponibles
+ 0. Volver
+Opción: 0
+
+===== SGB — MENÚ PRINCIPAL =====
+ 1. Gestión de usuarios
+ 2. Gestión de libros y categorías
+ 3. Gestión de préstamos
+ 4. Reservas, multas e historial
+ 5. Análisis de datos
+ 0. Salir
+
+==============================================================================
+  PARTE 3. PRÉSTAMOS (RF-03)
+==============================================================================
+Opción: 3
+
+===== PRÉSTAMOS =====
+ 1. Registrar préstamo
+ 2. Registrar devolución
+ 3. Consultar préstamo por código
+ 4. Listar préstamos de un usuario
+ 5. Listar préstamos activos
+ 6. Listar préstamos vencidos a una fecha
+ 0. Volver
+Opción: 5
+  Código                | ISBN          | Documento  | Préstamo   | Límite     | Devolución | Estado 
+  ----------------------+---------------+------------+------------+------------+------------+--------
+  PRE-20261028090000007 | 9789587654321 | 1098765432 | 2026-10-28 | 2026-11-04 | NINGUNO    | VENCIDO
+  PRE-20261104090000008 | 9789585001234 | 1001234567 | 2026-11-04 | 2026-11-19 | NINGUNO    | ACTIVO 
+  PRE-20261106090000009 | 9789588886095 | 1001234567 | 2026-11-06 | 2026-11-21 | NINGUNO    | ACTIVO 
+  PRE-20261107090000010 | 9789584295670 | 1098765432 | 2026-11-07 | 2026-11-14 | NINGUNO    | ACTIVO 
+
+===== PRÉSTAMOS =====
+ 1. Registrar préstamo
+ 2. Registrar devolución
+ 3. Consultar préstamo por código
+ 4. Listar préstamos de un usuario
+ 5. Listar préstamos activos
+ 6. Listar préstamos vencidos a una fecha
+ 0. Volver
+
+==============================================================================
+  Prestar: Carlos tiene una multa pendiente y Laura está suspendida -> el sistema no lo permite
+==============================================================================
+Opción: 1
+
+  --- Registrar préstamo ---   (< = campo anterior · * = cancelar)
+  [1/3] Documento del usuario: 1005556677
+      → Carlos Ruiz (ESTUDIANTE, ACTIVO)
+      ✗ El usuario tiene 1 multa(s) pendiente(s) por $3,000 COP. Corrija el dato (< = campo anterior, * = cancelar)
+  [1/3] Documento del usuario: 1102223344
+      → Laura Gómez (ESTUDIANTE, SUSPENDIDO)
+      ✗ El usuario está SUSPENDIDO. Corrija el dato (< = campo anterior, * = cancelar)
+  [1/3] Documento del usuario: 79888777
+      → Ana Torres (EXTERNO, ACTIVO)
+  [2/3] ISBN del libro: 9780140449136
+      → "Meditaciones" (1/1 disponibles)
+
+==============================================================================
+  La fecha del préstamo no puede ser futura; Enter = hoy
+==============================================================================
+  [3/3] Fecha del préstamo (AAAA-MM-DD) [2026-11-09]: 2099-01-01
+      ✗ La fecha no puede ser posterior a 2026-11-09. Corrija el dato (< = campo anterior, * = cancelar)
+  [3/3] Fecha del préstamo (AAAA-MM-DD) [2026-11-09]: 
+  Resumen:
+    1. Documento del usuario: 79888777
+    2. ISBN del libro: 9780140449136
+    3. Fecha del préstamo (AAAA-MM-DD): 2026-11-09
+  ¿Guardar? (s = sí · 1-3 = corregir ese campo · < = corregir el último · * = cancelar): s
+  Préstamo PRE-20261109235535092 registrado. Fecha límite: 2026-11-14
+
+===== PRÉSTAMOS =====
+ 1. Registrar préstamo
+ 2. Registrar devolución
+ 3. Consultar préstamo por código
+ 4. Listar préstamos de un usuario
+ 5. Listar préstamos activos
+ 6. Listar préstamos vencidos a una fecha
+ 0. Volver
+
+==============================================================================
+  Préstamos vencidos a hoy
+==============================================================================
+Opción: 6
+
+  --- Préstamos vencidos ---   (< = campo anterior · * = cancelar)
+  [1/1] Fecha de corte (AAAA-MM-DD) [2026-11-09]: 
+  Código                | ISBN          | Documento  | Préstamo   | Límite     | Devolución | Estado 
+  ----------------------+---------------+------------+------------+------------+------------+--------
+  PRE-20261028090000007 | 9789587654321 | 1098765432 | 2026-10-28 | 2026-11-04 | NINGUNO    | VENCIDO
+
+===== PRÉSTAMOS =====
+ 1. Registrar préstamo
+ 2. Registrar devolución
+ 3. Consultar préstamo por código
+ 4. Listar préstamos de un usuario
+ 5. Listar préstamos activos
+ 6. Listar préstamos vencidos a una fecha
+ 0. Volver
+
+==============================================================================
+  Devolver el préstamo vencido de María: se calcula la multa automáticamente (COP 1.000 por día)
+==============================================================================
+Opción: 2
+
+  --- Registrar devolución ---   (< = campo anterior · * = cancelar)
+  [1/2] Código del préstamo (PRE-...): PRE-123
+      ✗ El código debe tener el formato PRE- seguido de 17 dígitos. Corrija el dato (< = campo anterior, * = cancelar)
+  [1/2] Código del préstamo (PRE-...): PRE-20261028090000007
+  [2/2] Fecha de devolución (AAAA-MM-DD) [2026-11-09]: 
+  Resumen:
+    1. Código del préstamo (PRE-...): PRE-20261028090000007
+    2. Fecha de devolución (AAAA-MM-DD): 2026-11-09
+  ¿Guardar? (s = sí · 1-2 = corregir ese campo · < = corregir el último · * = cancelar): s
+  Devolución de PRE-20261028090000007 registrada.
+  Entregado con 5 día(s) de retraso: multa MUL-20261109235549299 por $5,000 COP
+
+===== PRÉSTAMOS =====
+ 1. Registrar préstamo
+ 2. Registrar devolución
+ 3. Consultar préstamo por código
+ 4. Listar préstamos de un usuario
+ 5. Listar préstamos activos
+ 6. Listar préstamos vencidos a una fecha
+ 0. Volver
+Opción: 4
+
+  --- Préstamos de un usuario ---   (< = campo anterior · * = cancelar)
+  [1/1] Documento: 1098765432
+      → María López (ESTUDIANTE, ACTIVO)
+  Código                | ISBN          | Documento  | Préstamo   | Límite     | Devolución | Estado  
+  ----------------------+---------------+------------+------------+------------+------------+---------
+  PRE-20260910090000001 | 9789585001234 | 1098765432 | 2026-09-10 | 2026-09-17 | 2026-09-20 | DEVUELTO
+  PRE-20261028090000007 | 9789587654321 | 1098765432 | 2026-10-28 | 2026-11-04 | 2026-11-09 | DEVUELTO
+  PRE-20261107090000010 | 9789584295670 | 1098765432 | 2026-11-07 | 2026-11-14 | NINGUNO    | ACTIVO  
+
+===== PRÉSTAMOS =====
+ 1. Registrar préstamo
+ 2. Registrar devolución
+ 3. Consultar préstamo por código
+ 4. Listar préstamos de un usuario
+ 5. Listar préstamos activos
+ 6. Listar préstamos vencidos a una fecha
+ 0. Volver
+Opción: 0
+
+===== SGB — MENÚ PRINCIPAL =====
+ 1. Gestión de usuarios
+ 2. Gestión de libros y categorías
+ 3. Gestión de préstamos
+ 4. Reservas, multas e historial
+ 5. Análisis de datos
+ 0. Salir
+
+==============================================================================
+  PARTE 4. RESERVAS, MULTAS E HISTORIAL (RF-04)
+==============================================================================
+Opción: 4
+
+===== RESERVAS, MULTAS E HISTORIAL =====
+ 1. Reservar libro
+ 2. Cancelar reserva
+ 3. Ver cola de reservas de un libro
+ 4. Consultar multas pendientes de un usuario
+ 5. Pagar multa
+ 6. Historial de un usuario
+ 0. Volver
+
+==============================================================================
+  Reservar un libro que sí tiene ejemplares -> el sistema indica que se puede prestar directamente
+==============================================================================
+Opción: 1
+
+  --- Reservar libro ---   (< = campo anterior · * = cancelar)
+  [1/2] Documento del usuario: 1098765432
+      → María López (ESTUDIANTE, ACTIVO)
+  [2/2] ISBN del libro: 9789585001234
+      → "Cien años de soledad" (4/5 disponibles)
+  Resumen:
+    1. Documento del usuario: 1098765432
+    2. ISBN del libro: 9789585001234
+  ¿Guardar? (s = sí · 1-2 = corregir ese campo · < = corregir el último · * = cancelar): s
+  ERROR: El libro tiene ejemplares disponibles: puede prestarlo directamente
+
+===== RESERVAS, MULTAS E HISTORIAL =====
+ 1. Reservar libro
+ 2. Cancelar reserva
+ 3. Ver cola de reservas de un libro
+ 4. Consultar multas pendientes de un usuario
+ 5. Pagar multa
+ 6. Historial de un usuario
+ 0. Volver
+
+==============================================================================
+  Reservar un libro sin ejemplares: queda en la cola por orden de llegada
+==============================================================================
+Opción: 1
+
+  --- Reservar libro ---   (< = campo anterior · * = cancelar)
+  [1/2] Documento del usuario: 1005556677
+      → Carlos Ruiz (ESTUDIANTE, ACTIVO)
+  [2/2] ISBN del libro: 9789588886095
+      → "El coronel no tiene quien le escriba" (0/1 disponibles)
+  Resumen:
+    1. Documento del usuario: 1005556677
+    2. ISBN del libro: 9789588886095
+  ¿Guardar? (s = sí · 1-2 = corregir ese campo · < = corregir el último · * = cancelar): s
+  Reserva RES-20261109235613267 creada. Puesto en la cola: 2
+
+===== RESERVAS, MULTAS E HISTORIAL =====
+ 1. Reservar libro
+ 2. Cancelar reserva
+ 3. Ver cola de reservas de un libro
+ 4. Consultar multas pendientes de un usuario
+ 5. Pagar multa
+ 6. Historial de un usuario
+ 0. Volver
+Opción: 3
+
+  --- Cola de reservas ---   (< = campo anterior · * = cancelar)
+  [1/1] ISBN: 9789588886095
+      → "El coronel no tiene quien le escriba" (0/1 disponibles)
+  Código                | ISBN          | Documento  | Fecha      | Estado
+  ----------------------+---------------+------------+------------+-------
+  RES-20261108090000003 | 9789588886095 | 79888777   | 2026-11-08 | ACTIVA
+  RES-20261109235613267 | 9789588886095 | 1005556677 | 2026-11-09 | ACTIVA
+
+===== RESERVAS, MULTAS E HISTORIAL =====
+ 1. Reservar libro
+ 2. Cancelar reserva
+ 3. Ver cola de reservas de un libro
+ 4. Consultar multas pendientes de un usuario
+ 5. Pagar multa
+ 6. Historial de un usuario
+ 0. Volver
+
+==============================================================================
+  Consultar y pagar la multa pendiente de Carlos
+==============================================================================
+Opción: 4
+
+  --- Multas pendientes ---   (< = campo anterior · * = cancelar)
+  [1/1] Documento del usuario: 1005556677
+      → Carlos Ruiz (ESTUDIANTE, ACTIVO)
+  Código                | Préstamo              | Días | Valor  | Estado   
+  ----------------------+-----------------------+------+--------+----------
+  MUL-20261010090000002 | PRE-20260930090000003 | 3    | $3,000 | PENDIENTE
+  Total pendiente: $3,000 COP
+
+===== RESERVAS, MULTAS E HISTORIAL =====
+ 1. Reservar libro
+ 2. Cancelar reserva
+ 3. Ver cola de reservas de un libro
+ 4. Consultar multas pendientes de un usuario
+ 5. Pagar multa
+ 6. Historial de un usuario
+ 0. Volver
+Opción: 5
+
+  --- Pagar multa ---   (< = campo anterior · * = cancelar)
+  [1/1] Código de la multa (MUL-...): MUL-20261010090000002
+  Resumen:
+    1. Código de la multa (MUL-...): MUL-20261010090000002
+  ¿Guardar? (s = sí · 1-1 = corregir ese campo · < = corregir el último · * = cancelar): s
+  Multa MUL-20261010090000002 por $3,000 COP pagada.
+
+===== RESERVAS, MULTAS E HISTORIAL =====
+ 1. Reservar libro
+ 2. Cancelar reserva
+ 3. Ver cola de reservas de un libro
+ 4. Consultar multas pendientes de un usuario
+ 5. Pagar multa
+ 6. Historial de un usuario
+ 0. Volver
+Opción: 5
+
+  --- Pagar multa ---   (< = campo anterior · * = cancelar)
+  [1/1] Código de la multa (MUL-...): MUL-20261010090000002
+      ✗ Esa multa ya está PAGADA. Corrija el dato (< = campo anterior, * = cancelar)
+  [1/1] Código de la multa (MUL-...): *
+  Operación cancelada.
+
+===== RESERVAS, MULTAS E HISTORIAL =====
+ 1. Reservar libro
+ 2. Cancelar reserva
+ 3. Ver cola de reservas de un libro
+ 4. Consultar multas pendientes de un usuario
+ 5. Pagar multa
+ 6. Historial de un usuario
+ 0. Volver
+
+==============================================================================
+  Historial cronológico de Carlos
+==============================================================================
+Opción: 6
+
+  --- Historial de usuario ---   (< = campo anterior · * = cancelar)
+  [1/1] Documento del usuario: 1005556677
+      → Carlos Ruiz (ESTUDIANTE, ACTIVO)
+
+  HISTORIAL DE CARLOS RUIZ (ESTUDIANTE, ACTIVO)
+  Código                | Libro                          | Préstamo   | Límite     | Devolución | Estado  
+  ----------------------+--------------------------------+------------+------------+------------+---------
+  PRE-20260930090000003 | Estructuras de datos en Python | 2026-09-30 | 2026-10-07 | 2026-10-10 | DEVUELTO
+  PRE-20261020090000006 | Cien años de soledad           | 2026-10-20 | 2026-10-27 | 2026-10-26 | DEVUELTO
+
+  Multas:
+  Código                | Préstamo              | Días | Valor  | Estado
+  ----------------------+-----------------------+------+--------+-------
+  MUL-20261010090000002 | PRE-20260930090000003 | 3    | $3,000 | PAGADA
+
+  Reservas:
+  Código                | ISBN          | Documento  | Fecha      | Estado   
+  ----------------------+---------------+------------+------------+----------
+  RES-20261030090000002 | 9789587654321 | 1005556677 | 2026-10-30 | CANCELADA
+  RES-20261109235613267 | 9789588886095 | 1005556677 | 2026-11-09 | ACTIVA   
+
+===== RESERVAS, MULTAS E HISTORIAL =====
+ 1. Reservar libro
+ 2. Cancelar reserva
+ 3. Ver cola de reservas de un libro
+ 4. Consultar multas pendientes de un usuario
+ 5. Pagar multa
+ 6. Historial de un usuario
+ 0. Volver
+Opción: 0
+
+===== SGB — MENÚ PRINCIPAL =====
+ 1. Gestión de usuarios
+ 2. Gestión de libros y categorías
+ 3. Gestión de préstamos
+ 4. Reservas, multas e historial
+ 5. Análisis de datos
+ 0. Salir
+
+==============================================================================
+  PARTE 5. ANÁLISIS DE DATOS (RF-05)
+==============================================================================
+Opción: 5
+
+===== ANÁLISIS DE DATOS =====
+ 1. Listar los N libros más prestados en un periodo
+ 2. Ver distribución de préstamos por categoría
+ 3. Ver tasa de morosidad por tipo de usuario
+ 4. Ver duración promedio de los préstamos devueltos
+ 5. Ver reporte de multas
+ 0. Volver
+Opción: 1
+
+  --- Libros más prestados ---   (< = campo anterior · * = cancelar)
+  [1/3] Fecha inicio (AAAA-MM-DD) [2025-11-09]: 
+  [2/3] Fecha fin (AAAA-MM-DD) [2026-11-09]: 
+  [3/3] Cantidad de libros a mostrar (1-50) [10]: 5
+  # | ISBN          | Título                               | Préstamos
+  --+---------------+--------------------------------------+----------
+  1 | 9789585001234 | Cien años de soledad                 | 3        
+  2 | 9780132350884 | Clean Code                           | 2        
+  3 | 9789587654321 | Estructuras de datos en Python       | 2        
+  4 | 9788408106463 | Cosmos                               | 1        
+  5 | 9789588886095 | El coronel no tiene quien le escriba | 1        
+
+===== ANÁLISIS DE DATOS =====
+ 1. Listar los N libros más prestados en un periodo
+ 2. Ver distribución de préstamos por categoría
+ 3. Ver tasa de morosidad por tipo de usuario
+ 4. Ver duración promedio de los préstamos devueltos
+ 5. Ver reporte de multas
+ 0. Volver
+Opción: 2
+  Código | Categoría  | Préstamos | %    
+  -------+------------+-----------+------
+  LIT    | Literatura | 4         | 36.4%
+  TEC    | Tecnología | 4         | 36.4%
+  CIE    | Ciencias   | 1         | 9.1% 
+  HIS    | Historia   | 1         | 9.1% 
+  FIL    | Filosofía  | 1         | 9.1% 
+
+===== ANÁLISIS DE DATOS =====
+ 1. Listar los N libros más prestados en un periodo
+ 2. Ver distribución de préstamos por categoría
+ 3. Ver tasa de morosidad por tipo de usuario
+ 4. Ver duración promedio de los préstamos devueltos
+ 5. Ver reporte de multas
+ 0. Volver
+Opción: 3
+  Tipo de usuario | Total préstamos | Préstamos morosos | Tasa (%)
+  ----------------+-----------------+-------------------+---------
+  ESTUDIANTE      | 5               | 3                 | 60.0%   
+  DOCENTE         | 3               | 0                 | 0.0%    
+  EXTERNO         | 3               | 1                 | 33.3%   
+
+===== ANÁLISIS DE DATOS =====
+ 1. Listar los N libros más prestados en un periodo
+ 2. Ver distribución de préstamos por categoría
+ 3. Ver tasa de morosidad por tipo de usuario
+ 4. Ver duración promedio de los préstamos devueltos
+ 5. Ver reporte de multas
+ 0. Volver
+Opción: 4
+  Duración promedio: 8.7 días
+
+===== ANÁLISIS DE DATOS =====
+ 1. Listar los N libros más prestados en un periodo
+ 2. Ver distribución de préstamos por categoría
+ 3. Ver tasa de morosidad por tipo de usuario
+ 4. Ver duración promedio de los préstamos devueltos
+ 5. Ver reporte de multas
+ 0. Volver
+Opción: 5
+  Concepto  | Cantidad | Valor (COP)
+  ----------+----------+------------
+  Generado  | 4        | $16,000    
+  Pagado    | 3        | $11,000    
+  Pendiente | 1        | $5,000     
+
+===== ANÁLISIS DE DATOS =====
+ 1. Listar los N libros más prestados en un periodo
+ 2. Ver distribución de préstamos por categoría
+ 3. Ver tasa de morosidad por tipo de usuario
+ 4. Ver duración promedio de los préstamos devueltos
+ 5. Ver reporte de multas
+ 0. Volver
+Opción: 0
+
+===== SGB — MENÚ PRINCIPAL =====
+ 1. Gestión de usuarios
+ 2. Gestión de libros y categorías
+ 3. Gestión de préstamos
+ 4. Reservas, multas e historial
+ 5. Análisis de datos
+ 0. Salir
+Opción: 0
+Hasta pronto.
