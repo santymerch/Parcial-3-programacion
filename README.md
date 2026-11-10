@@ -14,7 +14,10 @@ Software en Python (Google Colab) para gestionar una biblioteca: usuarios, libro
 |---------|-----------|
 | `SGB.ipynb` | Notebook de Google Colab con todo el sistema |
 | `SGB/datos/*.txt` | Datos de prueba (usuarios, categorías, libros, préstamos, multas, reservas) |
-| `SGB_Diagramas_UML.pdf` | Diagramas UML: dominio, dominio parcial, clases, objetos, estructurados y secuencia |
+| `SGB_UML.drawio` | Diagramas UML editables en draw.io (una pestaña por diagrama) |
+| `SGB_Diagramas_UML.pdf` | Documento de diagramas: diseño estructural, de comportamiento y de interacción |
+| `SGB_Diagramas_UML.md` | Explicación detallada de cada diagrama |
+| `diagramas/*.png` | Imágenes exportadas de cada diagrama |
 
 ## Tecnologías
 
